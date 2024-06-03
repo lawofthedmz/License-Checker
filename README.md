@@ -4,7 +4,7 @@ This PowerShell script checks if users in Azure Active Directory (Azure AD) have
 
 ## How it works
 
-The script reads a list of email addresses from a text file named `data.txt`. Each email address should be on a separate line.
+The script reads a list of email addresses from a text file named `emails.txt`. Each email address should be on a separate line.
 
 For each email address, the script retrieves the user's licenses from Azure AD. It then checks each license to see if its `SkuPartNumber` or any of its `ServicePlanName`s contain "SPE_F1" or "EMS".
 
@@ -22,4 +22,4 @@ Please note that you need to have the AzureAD PowerShell module installed to run
 
 - PowerShell
 - AzureAD PowerShell module
-- A text file named `data.txt` with one email address per line
+- A text file named `emails.txt` with one email address per line
