@@ -1,19 +1,3 @@
-# # Connect to Azure AD
-# Connect-AzureAD
-
-# # Get all user licenses
-# $licenses = Get-AzureADUserLicenseDetail
-
-# # Iterate through each license and display the details
-# foreach ($license in $licenses) {
-#     Write-Host "License: $($license.SkuPartNumber)"
-#     Write-Host "Service Plans: $($license.ServicePlans.ServicePlanName -join ', ')"
-#     Write-Host
-# }
-
-# # Disconnect from Azure AD
-# Disconnect-AzureAD
-
 # Connect to Azure AD
 Connect-AzureAD
 
@@ -35,7 +19,7 @@ foreach ($email in $emails) {
     # Initialize a flag to False
     $containsLicense = $false
 
-    # Iterate through each license and check if it contains "SPE_F1" or "EMS"
+    # Iterate through each license and check if it contains "SPE_F1" or "EMS" (Contains F3 or E3 License)
     foreach ($license in $licenses) {
         if ($license.SkuPartNumber -eq "SPE_F1" -or $license.ServicePlans.ServicePlanName -contains "SPE_F1" -or $license.SkuPartNumber -eq "EMS" -or $license.ServicePlans.ServicePlanName -contains "EMS") {
             $containsLicense = $true
