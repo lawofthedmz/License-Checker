@@ -7,7 +7,7 @@ $emails = Get-Content -Path "emails.txt" # Replace "data.txt" with the path to y
 #------------------------------------
 # Print the header
 Write-Output "------------------------------------"
-Write-Output "Users without SPE_F1 or EMS licenses: "
+Write-Output "Users without F3 or E3 licenses: "
 Write-Output " "
 Write-Output "------------------------------------"
 
@@ -21,7 +21,7 @@ foreach ($email in $emails) {
 
     # Iterate through each license and check if it contains "SPE_F1" or "EMS" (Contains F3 or E3 License)
     foreach ($license in $licenses) {
-        if ($license.SkuPartNumber -eq "SPE_F1" -or $license.ServicePlans.ServicePlanName -contains "SPE_F1" -or $license.SkuPartNumber -eq "EMS" -or $license.ServicePlans.ServicePlanName -contains "EMS") {
+        if ($license.SkuPartNumber -eq "SPE_F1" -or $license.SkuPartNumber -eq "EMS" -or $license.SkuPartNumber -eq "ENTERPRISEPACK") {
             $containsLicense = $true
             break
         }
